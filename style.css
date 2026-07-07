@@ -50,7 +50,7 @@
         rgba(0, 0, 0, 0.6)
     ),
     url('PPBD.png');
-    background-size: cover; /* Diubah ke cover agar responsif memenuhi layar, atau ganti 'contain' jika ingin gambar utuh */
+    background-size: contain; /* Diubah ke cover agar responsif memenuhi layar, atau ganti 'contain' jika ingin gambar utuh */
     background-position: center;
     background-repeat: no-repeat;
     min-height: 50vh; /* Disesuaikan dari 35vh/100vh terdahulu agar proporsional sebagai header */
