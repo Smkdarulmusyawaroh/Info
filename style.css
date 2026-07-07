@@ -1,0 +1,734 @@
+/* ==========================================================================
+   VINTAGE SCRAPBOOK THEME STYLESHEET
+   SMK Darul Musyawaroh Bangsri Premium Website Template
+   ========================================================================== 
+*/
+
+/* --- Root Variable / Palette Warna --- */
+:root {
+    --hijau-tua: #0B5D3B;
+    --cream: #F7F2E7;
+    --cream-dark: #EFE9DB;
+    --coklat-tua: #6B4F3A;
+    --gold: #C8A44D;
+    --putih: #FFFFFF;
+    --text-shadow-soft: 2px 2px 4px rgba(107, 79, 58, 0.15);
+    --border-paper: 1px solid #D2C7B5;
+}
+
+/* --- Reset & Base Typography --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* PERBAIKAN: Menambahkan fallback font standar (serif & sans-serif) */
+.font-playfair {
+    font-family: 'Playfair Display', Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.font-poppins {
+    font-family: 'Poppins', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.text-hijau { color: var(--hijau-tua); }
+.text-gold { color: var(--gold); }
+.text-coklat { color: var(--coklat-tua); }
+.bg-cream-dark { background-color: var(--cream-dark) !important; }
+.bg-cream { background-color: var(--cream) !important; }
+
+.text-justify {
+    text-align: justify;
+}
+
+/* --- PERBAIKAN: Hero / Header Section --- */
+/* Menggabungkan duplikasi selector menjadi satu struktur yang bersih dan efisien */
+.hero-section {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+    ),
+    url('assets/img/Head.png');
+    background-size: cover; /* Diubah ke cover agar responsif memenuhi layar, atau ganti 'contain' jika ingin gambar utuh */
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh; /* Disesuaikan dari 35vh/100vh terdahulu agar proporsional sebagai header */
+    padding: 60px 0 100px 0;
+    display: flex;
+    align-items: center;
+}
+
+
+/* --- Custom Preloader Vintage --- */
+.vintage-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--cream);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.stamp-animation {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--hijau-tua);
+    border: 4px double var(--hijau-tua);
+    padding: 10px 25px;
+    display: inline-block;
+    border-radius: 8px;
+    transform: rotate(-8deg);
+    animation: stampPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes stampPulse {
+    0% { transform: rotate(-8deg) scale(1); opacity: 0.6; }
+    50% { transform: rotate(-8deg) scale(1.08); opacity: 1; }
+    100% { transform: rotate(-8deg) scale(1); opacity: 0.6; }
+}
+
+/* --- Ornamen Dekoratif Tradisional --- */
+.top-leaf-decor {
+    width: 100%;
+    height: 8px;
+    background: repeating-linear-gradient(45deg, var(--hijau-tua), var(--hijau-tua) 15px, var(--gold) 15px, var(--gold) 30px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+}
+
+/* Washi Tape Accent */
+.washi-tape {
+    position: absolute;
+    height: 28px;
+    background-color: rgba(11, 93, 59, 0.25);
+    border-left: 3px dashed rgba(257, 257, 257, 0.4);
+    border-right: 3px dashed rgba(257, 257, 257, 0.4);
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.08);
+    transform: rotate(-5eg);
+    z-index: 10;
+}
+
+.tape-1 { width: 120px; top: 5px; left: 10%; background-color: rgba(200, 164, 77, 0.35); transform: rotate(35deg); }
+.tape-2 { width: 140px; bottom: 25px; right: 5%; transform: rotate(-5deg); }
+.card-tape { width: 90px; top: -14px; left: 50%; transform: translateX(-50%) rotate(2deg); background-color: rgba(11, 93, 59, 0.2); }
+.card-tape-top { width: 110px; top: -10px; left: 15%; transform: rotate(-3deg); background-color: rgba(11, 93, 59, 0.3); }
+.card-tape-center { width: 130px; top: -12px; left: 50%; transform: translateX(-50%) rotate(1deg); background-color: rgba(200, 164, 77, 0.4); }
+.bg-gold-tape { background-color: rgba(200, 164, 77, 0.3) !important; }
+
+/* Paper Clip Ornamen */
+.paper-clip-decor {
+    position: absolute;
+    top: -25px;
+    right: 40px;
+    width: 25px;
+    height: 60px;
+    border: 3px solid #999;
+    border-radius: 15px;
+    z-index: 20;
+    transform: rotate(50deg);
+    opacity: 0.65;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.1);
+}
+.paper-clip-decor::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    width: 13px;
+    height: 40px;
+    border: 2px solid #999;
+    border-radius: 10px;
+}
+.decor-left { left: 40px; right: auto; transform: rotate(-15deg); }
+
+/* Classic Vintage Stamp */
+.vintage-stamp {
+    position: absolute;
+    bottom: -20px;
+    right: -25px;
+    width: 90px;
+    height: 90px;
+    border: 2px dashed var(--gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(12deg);
+    opacity: 0.45;
+    z-index: 15;
+}
+.vintage-stamp::before {
+    content: 'TERAKREDITASI B';
+    font-size: 8px;
+    font-weight: bold;
+    color: var(--coklat-tua);
+    font-family: 'Poppins';
+}
+
+/* Flowers decor placeholders built via pure css shapes */
+.vintage-flower-decor {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, var(--gold) 20%, transparent 25%);
+    z-index: 12;
+    opacity: 0.55;
+}
+.f-bottom-left { bottom: -15px; left: -15px; }
+
+
+
+/* --- Custom Navigation Styles --- */
+.navbar-custom {
+    background-color: rgba(247, 242, 231, 0.95);
+    border-bottom: var(--border-paper);
+    box-shadow: 0 2px 10px rgba(107, 79, 58, 0.05);
+    padding: 12px 0;
+    backdrop-filter: blur(5px);
+}
+
+.school-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--hijau-tua);
+    letter-spacing: 0.5px;
+}
+
+.school-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+}
+
+.navbar-custom .nav-link {
+    font-family: 'Poppins', sans-serif;
+    color: var(--coklat-tua);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 15px !important;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-custom .nav-link:hover, 
+.navbar-custom .nav-link.active {
+    color: var(--hijau-tua);
+}
+
+.navbar-custom .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 2px;
+    left: 15px;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+}
+
+.navbar-custom .nav-link:hover::after,
+.navbar-custom .nav-link.active::after {
+    width: calc(100% - 30px);
+}
+
+
+/* --- Buttons Styles --- */
+.btn-gold-scrapbook {
+    background-color: var(--gold);
+    color: var(--putih);
+    border: 1px solid var(--gold);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 2px 3px 6px rgba(107, 79, 58, 0.2);
+}
+
+.btn-gold-scrapbook:hover {
+    background-color: #b39140;
+    color: var(--putih);
+    transform: translateY(-2px);
+    box-shadow: 2px 5px 10px rgba(107, 79, 58, 0.25);
+}
+
+.btn-hijau-scrapbook {
+    background-color: var(--hijau-tua);
+    color: var(--putih);
+    border: 1px solid var(--hijau-tua);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    box-shadow: 2px 3px 6px rgba(107, 79, 58, 0.15);
+    transition: all 0.3s ease;
+}
+
+.btn-hijau-scrapbook:hover {
+    background-color: #08472d;
+    color: var(--putih);
+    transform: translateY(-2px);
+}
+
+.btn-outline-coklat {
+    background-color: transparent;
+    color: var(--coklat-tua);
+    border: 2px solid var(--coklat-tua);
+    font-family: 'Poppins', sans-serif;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-coklat:hover {
+    background-color: var(--coklat-tua);
+    color: var(--cream);
+}
+
+
+/* --- Hero Section Elements --- */
+.hero-section {
+    padding: 60px 0 100px 0;
+    background: radial-gradient(circle at 80% 20%, rgba(247, 242, 231, 0.4) 0%, rgba(239, 233, 219, 0.4) 100%);
+}
+.hero-section{
+    background-image: url("assets/img/Head.png");
+    background-size: contain;
+    background-position: top;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+.badge-vintage {
+    background-color: rgba(200, 164, 77, 0.15);
+    color: var(--coklat-tua);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    padding: 6px 18px;
+    border: 1px dashed var(--gold);
+    border-radius: 30px;
+}
+
+.scrapbook-frame-container {
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+}
+
+.scrapbook-photo-frame {
+    background-color: var(--putih);
+    padding: 15px 15px 45px 15px;
+    border: var(--border-paper);
+    box-shadow: 3px 6px 15px rgba(107, 79, 58, 0.12);
+    transform: rotate(2deg);
+    transition: transform 0.4s ease;
+}
+
+.frame-rotated {
+    transform: rotate(-3deg) !important;
+}
+
+.scrapbook-frame-container:hover .scrapbook-photo-frame {
+    transform: rotate(0deg) scale(1.02);
+}
+
+
+/* --- Section Titles Styles --- */
+.section-title-vintage {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+}
+
+.section-title-vintage::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--gold);
+    border-radius: 2px;
+}
+
+.justify-content-center.section-title-vintage::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* --- Card Keunggulan Custom --- */
+.card-scrapbook {
+    background-color: var(--putih);
+    border: var(--border-paper);
+    border-radius: 4px;
+    box-shadow: 2px 4px 10px rgba(107, 79, 58, 0.06);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.card-scrapbook:hover {
+    transform: translateY(-8px);
+    box-shadow: 4px 12px 20px rgba(107, 79, 58, 0.12);
+}
+
+.icon-box-vintage {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(11, 93, 59, 0.08);
+    color: var(--hijau-tua);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    margin: 0 auto;
+}
+
+
+/* --- Vintage Profile Tabs --- */
+.vintage-tabs-container {
+    background-color: rgba(257,257,257,0.4);
+    border: 1px dashed var(--border-paper);
+    border-radius: 6px;
+}
+
+.btn-vintage-tab {
+    background-color: transparent !important;
+    color: var(--coklat-tua) !important;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-radius: 0 !important;
+    padding: 6px 20px !important;
+    margin-right: 10px;
+    border-bottom: 2px solid transparent;
+}
+
+.btn-vintage-tab.active {
+    color: var(--hijau-tua) !important;
+    border-bottom: 2px solid var(--hijau-tua);
+}
+
+.border-top-vintage {
+    border-top: 1px dashed var(--border-paper);
+}
+
+.custom-vintage-list li {
+    margin-bottom: 10px;
+}
+
+
+/* --- Kompetensi Program Cards --- */
+.kompetensi-card {
+    border-radius: 6px;
+    overflow: visible;
+    position: relative;
+}
+
+.kompetensi-img-wrapper {
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    border: var(--border-paper);
+    border-bottom: 0;
+}
+
+.kompetensi-icon-badge {
+    position: absolute;
+    bottom: -25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--gold);
+    color: var(--putih);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.border-vintage-box {
+    border: var(--border-paper) !important;
+    box-shadow: 0 5px 15px rgba(107, 79, 58, 0.05);
+}
+
+
+/* --- Counter Statistik Banner --- */
+.statistik-section {
+    background-color: var(--hijau-tua);
+    /* Efek Grid Klasik Halus di Background Gelap */
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-top: 4px solid var(--gold);
+    border-bottom: 4px solid var(--gold);
+}
+
+.stat-box {
+    padding: 15px;
+}
+
+
+/* --- News / Berita Grid Elements --- */
+.news-card-vintage {
+    background-color: var(--putih);
+    border: var(--border-paper);
+    box-shadow: 2px 4px 12px rgba(107, 79, 58, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.news-card-vintage:hover {
+    transform: translateY(-5px);
+}
+
+.news-img-holder {
+    position: relative;
+    overflow: hidden;
+}
+
+.news-date-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--coklat-tua);
+    color: var(--cream);
+    font-family: 'Poppins';
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 2px;
+}
+
+
+/* --- Gallery Architecture --- */
+.gallery-item-vintage {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--putih);
+    padding: 10px 10px 30px 10px;
+    border: var(--border-paper);
+    box-shadow: 2px 4px 8px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-item-vintage:hover {
+    transform: scale(1.03) rotate(1deg);
+    z-index: 5;
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 30px;
+    background-color: rgba(11, 93, 59, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item-vintage:hover .gallery-overlay {
+    opacity: 1;
+}
+
+
+/* --- PPDB Portal Layout --- */
+.ppdb-card-main {
+    background-color: var(--putih);
+    border: var(--border-paper);
+    box-shadow: 0 10px 30px rgba(107, 79, 58, 0.08);
+}
+
+.countdown-box {
+    flex: 1;
+    max-width: 75px;
+}
+
+.countdown-box .num {
+    background-color: var(--cream-dark);
+    color: var(--hijau-tua);
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    padding: 8px 0;
+    border-radius: 4px;
+    border: var(--border-paper);
+}
+
+.countdown-box .lbl {
+    font-size: 0.75rem;
+    color: var(--coklat-tua);
+    display: block;
+    margin-top: 5px;
+}
+
+.vintage-timeline::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 11px;
+    height: calc(100% - 30px);
+    width: 2px;
+    background-color: var(--border-paper);
+}
+
+.vintage-timeline {
+    position: relative;
+}
+
+.step-badge {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--hijau-tua);
+    color: var(--putih);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+
+/* --- Footer & Contact Infrastructure --- */
+.bg-vintage-dark {
+    background-color: #1A1512 !important;
+}
+
+.text-light-brown {
+    color: #CBBFB7;
+}
+
+.border-bottom-vintage-light {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.border-bottom-decor-sm {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.border-bottom-decor-sm::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 45px;
+    height: 2px;
+    background-color: var(--gold);
+}
+
+.vintage-quote {
+    background-color: rgba(255,255,255,0.04);
+    border-left: 3px solid var(--gold);
+}
+
+.social-icon-btn {
+    width: 35px;
+    height: 35px;
+    background-color: rgba(255,255,255,0.08);
+    color: var(--cream);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon-btn:hover {
+    background-color: var(--gold);
+    color: var(--putih);
+}
+
+
+/* --- Scroll Animations & Utility Framework --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Base Keyframe Classes requested */
+.animate-float {
+    animation: floatingArt 4s infinite ease-in-out;
+}
+
+@keyframes floatingArt {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.animate-swing {
+    animation: swingingPaper 6s infinite ease-in-out;
+}
+
+@keyframes swingingPaper {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+}
+
+.animate-pulse {
+    animation: pulseAction 2s infinite ease-in-out;
+}
+
+@keyframes pulseAction {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+/* Simple Fade Entrance Utilities */
+.animate-fade-in { animation: simpleFade 0.8s ease forwards; opacity: 0; }
+.animate-fade-in-delayed { animation: simpleFade 0.8s ease 0.3s forwards; opacity: 0; }
+.animate-fade-in-delayed-2 { animation: simpleFade 0.8s ease 0.5s forwards; opacity: 0; }
+.animate-fade-in-delayed-3 { animation: simpleFade 0.8s ease 0.7s forwards; opacity: 0; }
+
+@keyframes simpleFade {
+    to { opacity: 1; }
+}
