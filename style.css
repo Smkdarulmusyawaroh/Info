@@ -49,7 +49,7 @@
         rgba(0, 0, 0, 0.6),
         rgba(0, 0, 0, 0.6)
     ),
-    url('PPBD.png');
+    url('./Head.png');
     background-size: contain; /* Diubah ke cover agar responsif memenuhi layar, atau ganti 'contain' jika ingin gambar utuh */
     background-position: center;
     background-repeat: no-repeat;
