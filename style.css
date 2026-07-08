@@ -46,8 +46,8 @@
 /* Menggabungkan duplikasi selector menjadi satu struktur yang bersih dan efisien */
 .hero-section {
     background: linear-gradient(
-        rgba(0, 0, 0, 0.6),
-        rgba(0, 0, 0, 0.6)
+        rgba(0, 0, 0, 9.9),
+        rgba(0, 0, 0, 9.9)
     ),
     url('assets/Head.png');
     background-size: contain; /* Diubah ke cover agar responsif memenuhi layar, atau ganti 'contain' jika ingin gambar utuh */
